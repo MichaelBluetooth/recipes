@@ -4,8 +4,8 @@ import { IngredientService } from '../ingredient.service';
 
 @Component({
   selector: 'app-ingredient-details',
-  templateUrl: './ingredient-details.component.html',
-  styleUrls: ['./ingredient-details.component.css']
+  templateUrl: './ingredient-detail.component.html',
+  styleUrls: ['./ingredient-detail.component.css']
 })
 
 export class IngredientDetailsComponent {
