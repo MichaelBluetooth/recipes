@@ -46,4 +46,10 @@ export class RecipeEditComponent implements OnInit {
   getButtonText(): string {
     return this.id ? 'Edit' : 'Create';
   }
+
+  delete() {
+    this.recipeService.deleteRecipe(this.id).then(() => {
+      this.router.navigate(['recipes']);
+    });
+  }
 }

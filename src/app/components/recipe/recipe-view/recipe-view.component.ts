@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Recipe } from '../../../models/recipe';
+import { RecipeService } from '../../../services/recipe/recipe.service';
 
 @Component({
   selector: 'app-recipe-view',
@@ -11,7 +12,7 @@ export class RecipeViewComponent implements OnInit {
 
   recipe: Recipe;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe((routeData) => {
@@ -19,4 +20,9 @@ export class RecipeViewComponent implements OnInit {
     });
   }
 
+  delete() {
+    this.recipeService.deleteRecipe(this.recipe._id).then(() => {
+      this.router.navigate(['recipes']);
+    });
+  }
 }
