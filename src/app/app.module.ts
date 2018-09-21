@@ -2,24 +2,76 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+
+import { Autosize } from 'ng-autosize';
 
 import { AppComponent } from './app.component';
 import { IngredientListComponent } from './ingredients/ingredients-list/ingredients-list.component';
 import { IngredientDetailsComponent } from './ingredients/ingredient-detail/ingredient-detail.component';
 import { IngredientService } from './ingredients/ingredient.service';
+import { ErrorService } from './services/error/error.service';
+import { RecipeService } from './services/recipe/recipe.service';
+import { RecipeEditComponent } from './components/recipe/recipe-edit/recipe-edit.component';
+import { RecipeResolver } from './resolvers/recipe.resolver';
+import { RecipeViewComponent } from './components/recipe/recipe-view/recipe-view.component';
+import { ArrayForTextAreaPipe } from './pipes/array-for-text-area.pipe';
+import { RecipeListComponent } from './components/recipe/recipe-list/recipe-list.component';
+
+const appRoutes: Routes = [
+  {
+    path: 'recipes',
+    component: RecipeListComponent
+  },
+  {
+    path: 'recipes/new',
+    component: RecipeEditComponent
+  },
+  {
+    path: 'recipes/:id/edit',
+    component: RecipeEditComponent,
+    resolve: {
+      recipe: RecipeResolver
+    }
+  },
+  {
+    path: 'recipes/:id',
+    component: RecipeViewComponent,
+    resolve: {
+      recipe: RecipeResolver
+    }
+  },
+  {
+    path: '',
+    redirectTo: '/recipes',
+    pathMatch: 'full'
+  },
+  // { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   declarations: [
+    Autosize,
     AppComponent,
     IngredientListComponent,
-    IngredientDetailsComponent
+    IngredientDetailsComponent,
+    RecipeEditComponent,
+    RecipeViewComponent,
+    ArrayForTextAreaPipe,
+    RecipeListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [IngredientService],
+  providers: [
+    ErrorService,
+    IngredientService,
+    RecipeService,
+    RecipeResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

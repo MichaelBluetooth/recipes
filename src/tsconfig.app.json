@@ -7,5 +7,6 @@
   "exclude": [
     "test.ts",
     "**/*.spec.ts"
-  ]
+  ],
+  "include": [ "**/*.ts", "../node_modules/ng-autosize/**/*.ts" ]
 }

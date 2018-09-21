@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="recipeName">Name</label>
+  <input type="text" class="form-control" id="recipeName" placeholder="Enter a name" [(ngModel)]="name">
+</div>
+<div class="form-group">
+  <label for="recipeIngredients">Ingredients</label>
+  <textarea autosize id="recipeIngredients" class="form-control" rows="5" [(ngModel)]="ingredients"></textarea>
+</div>
+<div class="form-group">
+  <label for="recipeInstructions">Instructions</label>
+  <textarea autosize id="recipeInstructions" class="form-control" rows="5" [(ngModel)]="instructions"></textarea>
+</div>
+<button type="button" class="btn btn-primary" (click)="create()">{{getButtonText()}}</button>

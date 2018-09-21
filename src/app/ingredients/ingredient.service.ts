@@ -23,8 +23,7 @@ export class IngredientService {
       .then(response => response.json() as Ingredient)
       .catch(this.handleError);
   }
-
-
+  
   // delete("/api/ingredients/:id")
   deleteIngredient(delIngredientId: String): Promise<void | String> {
     return this.http.delete(this.ingredientsUrl + '/' + delIngredientId)
