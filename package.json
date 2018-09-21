@@ -14,9 +14,9 @@
   "dependencies": {
     "@angular/animations": "^6.1.0",
     "@angular/cli": "^6.2.3",
-    "@angular/compiler-cli": "^6.1.8",
     "@angular/common": "^6.1.0",
     "@angular/compiler": "^6.1.0",
+    "@angular/compiler-cli": "^6.1.8",
     "@angular/core": "^6.1.0",
     "@angular/forms": "^6.1.0",
     "@angular/http": "^6.1.0",
@@ -27,11 +27,12 @@
     "core-js": "^2.5.4",
     "express": "^4.16.3",
     "mongodb": "^3.1.6",
+    "ng-autosize": "^1.1.0",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.8.0",    
+    "@angular-devkit/build-angular": "~0.8.0",
     "@angular/language-service": "^6.1.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
