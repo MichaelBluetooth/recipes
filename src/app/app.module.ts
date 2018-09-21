@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
+import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
 
 import { Autosize } from 'ng-autosize';
 
@@ -67,6 +68,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
+    Location,
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     ErrorService,
     IngredientService,
     RecipeService,
