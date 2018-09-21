@@ -117,7 +117,7 @@ app.delete("/api/ingredients/:id", function(req, res) {
 // RECIPE ROUTES BELOW
 
 app.get("/api/recipes", function(req, res) {
-  db.collection(RECIPESS_COLLECTION).find({}).toArray(function(err, docs) {
+  db.collection(RECIPES_COLLECTION).find({}).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get recipes.");
     } else {
