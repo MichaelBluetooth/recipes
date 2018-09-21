@@ -4,6 +4,7 @@ var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
 
 var INGREDIENTS_COLLECTION = "ingredients";
+var RECIPES_COLLECTION = "recipes";
 
 var app = express();
 app.use(bodyParser.json());
@@ -107,6 +108,69 @@ app.delete("/api/ingredients/:id", function(req, res) {
   db.collection(INGREDIENTS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
     if (err) {
       handleError(res, err.message, "Failed to delete ingredient");
+    } else {
+      res.status(200).json(req.params.id);
+    }
+  });
+});
+
+// RECIPE ROUTES BELOW
+
+app.get("/api/recipes", function(req, res) {
+  db.collection(RECIPESS_COLLECTION).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get recipes.");
+    } else {
+      res.status(200).json(docs);
+    }
+  });
+});
+
+app.post("/api/recipes", function(req, res) {
+  var newRecipe = req.body;
+  newRecipe.createDate = new Date();
+
+  if (!req.body.name) {
+    handleError(res, "Invalid user input", "Must provide a name.", 400);
+  } else {
+    db.collection(RECIPES_COLLECTION).insertOne(newRecipe, function(err, doc) {
+      if (err) {
+        handleError(res, err.message, "Failed to create new recipe.");
+      } else {
+        res.status(201).json(doc.ops[0]);
+      }
+    });
+  }
+});
+
+app.get("/api/recipes/:id", function(req, res) {
+  db.collection(RECIPES_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get recipe");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
+});
+
+app.put("/api/recipes/:id", function(req, res) {
+  var updateDoc = req.body;
+  delete updateDoc._id;
+
+  db.collection(RECIPES_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to update recipe");
+    } else {
+      updateDoc._id = req.params.id;
+      res.status(200).json(updateDoc);
+    }
+  });
+});
+
+app.delete("/api/recipes/:id", function(req, res) {
+  db.collection(RECIPES_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+    if (err) {
+      handleError(res, err.message, "Failed to delete recipe");
     } else {
       res.status(200).json(req.params.id);
     }
