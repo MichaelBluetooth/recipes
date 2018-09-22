@@ -35,6 +35,7 @@ export class RecipeEditComponent implements OnInit {
 
   create() {
     const recipe = new Recipe();
+    recipe._id = this.id;
     recipe.name = this.name;
     recipe.instructions = this.instructions.split('\n');
     recipe.ingredients = this.ingredients.split('\n');
