@@ -38,9 +38,15 @@ export class RecipeEditComponent implements OnInit {
     recipe.name = this.name;
     recipe.instructions = this.instructions.split('\n\n');
     recipe.ingredients = this.ingredients.split('\n\n');
-    this.recipeService.createRecipe(recipe).then((createdRecipe: Recipe) => {
-      this.router.navigate(['recipes', createdRecipe._id]);
-    });
+    if (this.id) {
+      this.recipeService.updateRecipe(recipe).then((createdRecipe: Recipe) => {
+        this.router.navigate(['recipes', createdRecipe._id]);
+      });
+    } else {
+      this.recipeService.createRecipe(recipe).then((createdRecipe: Recipe) => {
+        this.router.navigate(['recipes', createdRecipe._id]);
+      });
+    }
   }
 
   getButtonText(): string {
