@@ -1,3 +1,5 @@
+<button type="button" class="btn btn-primary" (click)="create()">{{getButtonText()}}</button>
+<button class="btn btn-warning" (click)="delete()">Delete</button>
 <div class="form-group">
   <label for="recipeName">Name</label>
   <input type="text" class="form-control" id="recipeName" placeholder="Enter a name" [(ngModel)]="name" required>
@@ -13,7 +15,7 @@
     <option ngValue="Breakfast">Breakfast</option>
     <option ngValue="Lunch">Lunch</option>
     <option ngValue="Dinner">Dinner</option>
-    <option ngValue="Desert">Desert</option>
+    <option ngValue="Dessert">Dessert</option>
     <option ngValue="Snack">Snack</option>
   </select>
 </div>
@@ -29,5 +31,3 @@
   <label for="recipeNotes">Notes</label>
   <textarea autosize id="recipeNotes" class="form-control" rows="5" [(ngModel)]="notes"></textarea>
 </div>
-<button type="button" class="btn btn-primary" (click)="create()">{{getButtonText()}}</button>
-<button class="btn btn-warning" (click)="delete()">Delete</button>
