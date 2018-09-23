@@ -1,3 +1,6 @@
+<button class="btn btn-primary" [routerLink]="['/recipes/' + recipe._id + '/edit']">Edit</button>
+<button class="btn btn-warning" (click)="delete()">Delete</button>
+
 <h2>
   {{recipe.name}}
 </h2>
@@ -17,6 +20,3 @@
 
 <h3 *ngIf="recipe.notes">Notes</h3>
 <p *ngIf="recipe.notes">{{recipe.notes}}</p>
-
-<button class="btn btn-primary" [routerLink]="['/recipes/' + recipe._id + '/edit']">Edit</button>
-<button class="btn btn-warning" (click)="delete()">Delete</button>

@@ -1,4 +1,4 @@
 <button class="btn btn-primary" [routerLink]="['/recipes/new']">New</button>
 <div class="list-group">
-  <a href="#" [routerLink]="['/recipes/' + recipe._id]" class="list-group-item list-group-item-action" *ngFor="let recipe of recipes">{{recipe.name}}</a>
+  <a href="#" [routerLink]="['/recipes/' + recipe._id]" class="list-group-item list-group-item-action" *ngFor="let recipe of recipes">{{recipe.name | uppercase}}</a>
 </div >
