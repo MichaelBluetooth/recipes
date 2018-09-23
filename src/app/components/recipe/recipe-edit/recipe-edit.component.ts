@@ -67,8 +67,11 @@ export class RecipeEditComponent implements OnInit {
   }
 
   delete() {
-    this.recipeService.deleteRecipe(this.id).then(() => {
-      this.router.navigate(['recipes']);
-    });
+    const confirmed = confirm('Are you sure you want to delete this recipe? This cannot be undone.');
+    if (confirmed) {
+      this.recipeService.deleteRecipe(this.id).then(() => {
+        this.router.navigate(['recipes']);
+      });
+    }
   }
 }

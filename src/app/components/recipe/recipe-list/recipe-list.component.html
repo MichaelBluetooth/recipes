@@ -4,8 +4,7 @@
     [routerLink]="['/recipes/' + recipe._id]">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{recipe.name | uppercase}}</h5>
-      <small>{{recipe.category}}</small>
-    </div>1
+    </div>
     <p *ngIf="recipe.description">{{recipe.description}}<p>
   </a>
 </div>
