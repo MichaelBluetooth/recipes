@@ -3,6 +3,10 @@
   <input type="text" class="form-control" id="recipeName" placeholder="Enter a name" [(ngModel)]="name" required>
 </div>
 <div class="form-group">
+  <label for="recipeDescription">Description</label>
+  <textarea autosize id="recipeDescription" class="form-control" rows="5" [(ngModel)]="description"></textarea>
+</div>
+<div class="form-group">
   <label for="recipeCategory">Category</label>
   <select class="form-control" id="recipeCategory" [(ngModel)]="category">
     <option ngValue=""></option>

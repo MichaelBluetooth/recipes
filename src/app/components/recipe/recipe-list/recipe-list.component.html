@@ -1,4 +1,10 @@
 <button class="btn btn-primary" [routerLink]="['/recipes/new']">New</button>
 <div class="list-group">
-  <a href="#" [routerLink]="['/recipes/' + recipe._id]" class="list-group-item list-group-item-action" *ngFor="let recipe of recipes">{{recipe.name | uppercase}}</a>
-</div >
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let recipe of recipes" [routerLink]="['/recipes/' + recipe._id]">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{recipe.name | uppercase}}</h5>
+      <small *ngIf="recipe.category">{{recipe.category}}</small>
+    </div>
+    <p class="mb-1" *ngIf="recipe.description">{{recipe.description}}</p>
+  </a>  
+</div>

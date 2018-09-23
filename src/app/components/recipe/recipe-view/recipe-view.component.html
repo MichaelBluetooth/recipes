@@ -4,6 +4,7 @@
 <h2>
   {{recipe.name}}
 </h2>
+<p *ngIf="recipe.description">{{recipe.description}}</p>
 
 <h3 *ngIf="recipe.category">Category</h3>
 <p *ngIf="recipe.category">{{recipe.category}}</p>

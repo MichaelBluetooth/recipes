@@ -12,6 +12,7 @@ export class RecipeEditComponent implements OnInit {
 
   id: string;
   name: string;
+  description: string;
   category: string;
   ingredients: string;
   instructions: string;
@@ -24,6 +25,7 @@ export class RecipeEditComponent implements OnInit {
       if (routeData.recipe) {
         this.id = routeData.recipe._id;
         this.name = routeData.recipe.name;
+        this.description = this.description;
         this.category = routeData.recipe.category;
         this.ingredients = routeData.recipe.ingredients.join('\n');
         this.instructions = routeData.recipe.instructions.join('\n');
@@ -31,6 +33,7 @@ export class RecipeEditComponent implements OnInit {
       } else {
         this.id = null;
         this.name = null;
+        this.description = null;
         this.notes = null;
         this.ingredients = null;
         this.instructions = null;
