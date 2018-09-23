@@ -59,7 +59,7 @@ export class RecipeEditComponent implements OnInit {
   }
 
   getButtonText(): string {
-    return this.id ? 'Edit' : 'Create';
+    return this.id ? 'Save' : 'Create';
   }
 
   delete() {
