@@ -1,5 +1,5 @@
 <button type="button" class="btn btn-primary" (click)="create()">{{getButtonText()}}</button>
-<button class="btn btn-warning" (click)="delete()">Delete</button>
+<button class="btn btn-warning" *ngIf="id" (click)="delete()">Delete</button>
 <div class="form-group">
   <label for="recipeName">Name</label>
   <input type="text" class="form-control" id="recipeName" placeholder="Enter a name" [(ngModel)]="name" required>
