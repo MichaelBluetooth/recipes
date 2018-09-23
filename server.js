@@ -39,7 +39,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:2701
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
   console.log("ERROR: " + reason);
-  res.status(code || 500).json({"error": message, "detail": });
+  res.status(code || 500).json({"error": message});
 }
 
 /*  "/api/ingredients"
@@ -154,7 +154,7 @@ app.get("/api/recipes/:id", function(req, res) {
 });
 
 app.put("/api/recipes/:id", function(req, res) {
-  var updateDoc = req.body;
+  var updateDoc = {$set: req.body};
   delete updateDoc._id;
 
   db.collection(RECIPES_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {

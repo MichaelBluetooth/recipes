@@ -12,8 +12,10 @@ export class RecipeEditComponent implements OnInit {
 
   id: string;
   name: string;
+  category: string;
   ingredients: string;
   instructions: string;
+  notes: string;
 
   constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -22,13 +24,17 @@ export class RecipeEditComponent implements OnInit {
       if (routeData.recipe) {
         this.id = routeData.recipe._id;
         this.name = routeData.recipe.name;
-        this.ingredients = routeData.recipe.ingredients.join('\n');
-        this.instructions = routeData.recipe.instructions.join('\n');
+        this.category = routeData.recipe.category;
+        this.ingredients = routeData.recipe.ingredients.join('\n').filter(i => i !== '');
+        this.instructions = routeData.recipe.instructions.join('\n').filter(i => i !== '');
+        this.notes = routeData.recipe.notes;
       } else {
         this.id = null;
         this.name = null;
+        this.notes = null;
         this.ingredients = null;
         this.instructions = null;
+        this.category = null;
       }
     });
   }
@@ -37,8 +43,10 @@ export class RecipeEditComponent implements OnInit {
     const recipe = new Recipe();
     recipe._id = this.id;
     recipe.name = this.name;
+    recipe.category = this.category;
     recipe.instructions = this.instructions.split('\n');
     recipe.ingredients = this.ingredients.split('\n');
+    recipe.notes = this.notes;
     if (this.id) {
       this.recipeService.updateRecipe(recipe).then((createdRecipe: Recipe) => {
         this.router.navigate(['recipes', createdRecipe._id]);
