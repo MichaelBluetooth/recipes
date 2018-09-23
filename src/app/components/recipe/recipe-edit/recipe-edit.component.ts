@@ -25,8 +25,8 @@ export class RecipeEditComponent implements OnInit {
         this.id = routeData.recipe._id;
         this.name = routeData.recipe.name;
         this.category = routeData.recipe.category;
-        this.ingredients = routeData.recipe.ingredients.join('\n').filter(i => i !== '');
-        this.instructions = routeData.recipe.instructions.join('\n').filter(i => i !== '');
+        this.ingredients = routeData.recipe.ingredients.join('\n');
+        this.instructions = routeData.recipe.instructions.join('\n');
         this.notes = routeData.recipe.notes;
       } else {
         this.id = null;
@@ -44,8 +44,8 @@ export class RecipeEditComponent implements OnInit {
     recipe._id = this.id;
     recipe.name = this.name;
     recipe.category = this.category;
-    recipe.instructions = this.instructions.split('\n');
-    recipe.ingredients = this.ingredients.split('\n');
+    recipe.instructions = this.instructions.split('\n').filter(i => i !== '');
+    recipe.ingredients = this.ingredients.split('\n').filter(i => i !== '');
     recipe.notes = this.notes;
     if (this.id) {
       this.recipeService.updateRecipe(recipe).then((createdRecipe: Recipe) => {
