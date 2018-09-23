@@ -46,6 +46,7 @@ export class RecipeEditComponent implements OnInit {
     const recipe = new Recipe();
     recipe._id = this.id;
     recipe.name = this.name;
+    recipe.description = this.description;
     recipe.category = this.category;
     recipe.instructions = this.instructions.split('\n').filter(i => i !== '');
     recipe.ingredients = this.ingredients.split('\n').filter(i => i !== '');
