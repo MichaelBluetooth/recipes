@@ -154,7 +154,7 @@ app.get("/api/recipes/:id", function(req, res) {
 });
 
 app.put("/api/recipes/:id", function(req, res) {
-  delete updateDoc._id;
+  delete req.body._id;
   var updateDoc = {$set: req.body};
 
   db.collection(RECIPES_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
