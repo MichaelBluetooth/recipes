@@ -1,25 +1,25 @@
 <div class="form-group">
   <label for="recipeName">Name</label>
-  <input type="text" class="form-control" id="recipeName" placeholder="Enter a name" [(ngModel)]="name">
+  <input type="text" class="form-control" id="recipeName" placeholder="Enter a name" [(ngModel)]="name" required>
 </div>
 <div class="form-group">
   <label for="recipeCategory">Category</label>
   <select class="form-control" id="recipeCategory" [(ngModel)]="category">
-    <option [value]=""></option>
-    <option [value]="Breakfast">Breakfast</option>
-    <option [value]="Lunch">Lunch</option>
-    <option [value]="Dinner">Dinner</option>
-    <option [value]="Desert">Desert</option>
-    <option [value]="Snack">Snack</option>
+    <option [ngValue]=""></option>
+    <option [ngValue]="Breakfast">Breakfast</option>
+    <option [ngValue]="Lunch">Lunch</option>
+    <option [ngValue]="Dinner">Dinner</option>
+    <option [ngValue]="Desert">Desert</option>
+    <option [ngValue]="Snack">Snack</option>
   </select>
 </div>
 <div class="form-group">
   <label for="recipeIngredients">Ingredients</label>
-  <textarea autosize id="recipeIngredients" class="form-control" rows="5" [(ngModel)]="ingredients"></textarea>
+  <textarea autosize id="recipeIngredients" class="form-control" rows="5" [(ngModel)]="ingredients" required></textarea>
 </div>
 <div class="form-group">
   <label for="recipeInstructions">Instructions</label>
-  <textarea autosize id="recipeInstructions" class="form-control" rows="5" [(ngModel)]="instructions"></textarea>
+  <textarea autosize id="recipeInstructions" class="form-control" rows="5" [(ngModel)]="instructions" required></textarea>
 </div>
 <div class="form-group">
   <label for="recipeNotes">Notes</label>

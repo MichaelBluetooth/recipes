@@ -2,8 +2,8 @@
   {{recipe.name}}
 </h2>
 
-<h3>Category</h3>
-<span>{{recipe.category}}</span>
+<h3 *ngIf="recipe.category">Category</h3>
+<p *ngIf="recipe.category">{{recipe.category}}</p>
 
 <h3>Ingredients</h3>
 <ul class="list-group">
@@ -15,8 +15,8 @@
   <li class="list-group-item" *ngFor="let instruction of recipe.instructions">{{instruction}}</li>  
 </ul>
 
-<h3>Notes</h3>
-<span>{{recipe.notes}}</span>
+<h3 *ngIf="recipe.notes">Notes</h3>
+<p *ngIf="recipe.notes">{{recipe.notes}}</p>
 
 <button class="btn btn-primary" [routerLink]="['/recipes/' + recipe._id + '/edit']">Edit</button>
 <button class="btn btn-warning" (click)="delete()">Delete</button>
