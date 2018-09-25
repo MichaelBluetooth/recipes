@@ -8,9 +8,9 @@ export class SortPipe implements PipeTransform {
         array.sort((a: any, b: any) => {
             const aValue = a[field] ? a[field] : null;
             const bValue = b[field] ? b[field] : null;
-            if (aValue < bValue ) {
+            if (aValue > bValue ) {
                 return -1;
-            } else if (aValue > bValue) {
+            } else if (aValue < bValue) {
                 return 1;
             } else {
                 return 0;
