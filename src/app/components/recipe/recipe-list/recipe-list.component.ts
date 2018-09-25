@@ -18,4 +18,8 @@ export class RecipeListComponent implements OnInit {
       this.recipes = recipes;
     });
   }
+
+  toggleFavorite() {
+    alert('yup');
+  }
 }

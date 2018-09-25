@@ -28,4 +28,13 @@ export class RecipeViewComponent implements OnInit {
       });
     }
   }
+
+  getFavoriteClass() {
+    return `pull-left clickable favorite-star fa ${this.recipe.favorite ? 'fa-star' : 'fa-star-o'} fa-2x`;
+  }
+
+  toggleFavorite() {
+    this.recipe.favorite = !this.recipe.favorite;
+    this.recipeService.setFavorite(this.recipe._id, this.recipe.favorite);
+  }
 }

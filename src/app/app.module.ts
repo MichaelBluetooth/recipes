@@ -18,6 +18,7 @@ import { RecipeResolver } from './resolvers/recipe.resolver';
 import { RecipeViewComponent } from './components/recipe/recipe-view/recipe-view.component';
 import { ArrayForTextAreaPipe } from './pipes/array-for-text-area.pipe';
 import { RecipeListComponent } from './components/recipe/recipe-list/recipe-list.component';
+import { SortPipe } from './pipes/sort.pipe';
 
 const appRoutes: Routes = [
   {
@@ -59,7 +60,8 @@ const appRoutes: Routes = [
     RecipeEditComponent,
     RecipeViewComponent,
     ArrayForTextAreaPipe,
-    RecipeListComponent
+    RecipeListComponent,
+    SortPipe
   ],
   imports: [
     BrowserModule,

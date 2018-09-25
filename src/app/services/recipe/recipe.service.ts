@@ -45,4 +45,12 @@ export class RecipeService {
       .then(response => response.json() as Recipe)
       .catch(this.errorService.handleError);
   }
+
+  setFavorite(id: string, favorite: boolean): Promise<void | Recipe> {
+    const putUrl = this.recipesUrl + '/' + id;
+    return this.http.put(putUrl, {favorite: favorite})
+      .toPromise()
+      .then(response => response.json() as Recipe)
+      .catch(this.errorService.handleError);
+  }
 }
