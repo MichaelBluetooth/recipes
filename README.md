@@ -1,27 +1,25 @@
 # Recipes
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
+Your own online recipe book! Add your own recipes and share with your friends and family.
 
-## Development server
+## Why?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Ever find an amazing recipe online, then never find it again?
 
-## Code scaffolding
+Ever find a recipe your interested in, but have to scroll past a novel just to get the the ingredients list?
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ever find an amazing recipe, only to constantly need to battle intrusive ads just to see how much paprika you need?
 
-## Build
+Now you don't need to deal with all that! Find a recipe, add it to your digital recipe book where you can easily find the recipe whenever you need it. While cooking, you won't need to deal with all those ads and stories you don't care about.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Development
+
+1. Install [MongoDB](https://www.mongodb.com/download-center?jmp=homepage#community) if it's not already installed on your environment.
+2. Install dependencies if you haven't already `npm install` 
+3. Build the project `ng build --output-path dist`
+4. Serve up the project `npm run start`
+5. Navigate open your browser and navigate to the project. It will be running on localhost:8080
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Run `ng test` to execute the unit tests.
