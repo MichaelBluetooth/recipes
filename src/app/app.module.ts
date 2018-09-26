@@ -8,9 +8,6 @@ import { HashLocationStrategy, Location, LocationStrategy } from '@angular/commo
 import { Autosize } from 'ng-autosize';
 
 import { AppComponent } from './app.component';
-import { IngredientListComponent } from './ingredients/ingredients-list/ingredients-list.component';
-import { IngredientDetailsComponent } from './ingredients/ingredient-detail/ingredient-detail.component';
-import { IngredientService } from './ingredients/ingredient.service';
 import { ErrorService } from './services/error/error.service';
 import { RecipeService } from './services/recipe/recipe.service';
 import { RecipeEditComponent } from './components/recipe/recipe-edit/recipe-edit.component';
@@ -55,8 +52,6 @@ const appRoutes: Routes = [
   declarations: [
     Autosize,
     AppComponent,
-    IngredientListComponent,
-    IngredientDetailsComponent,
     RecipeEditComponent,
     RecipeViewComponent,
     ArrayForTextAreaPipe,
@@ -73,7 +68,6 @@ const appRoutes: Routes = [
     Location,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     ErrorService,
-    IngredientService,
     RecipeService,
     RecipeResolver
   ],
