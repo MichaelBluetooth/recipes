@@ -3,8 +3,8 @@ export class Recipe {
     name: string;
     description?: string;
     category?: string;
-    ingredients: string[];
-    instructions: string[];
+    ingredients: string[] | string;
+    instructions: string[] | string;
     notes?: string;
     favorite?: boolean;
 }

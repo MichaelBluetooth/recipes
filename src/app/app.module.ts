@@ -13,9 +13,9 @@ import { RecipeService } from './services/recipe/recipe.service';
 import { RecipeEditComponent } from './components/recipe/recipe-edit/recipe-edit.component';
 import { RecipeResolver } from './resolvers/recipe.resolver';
 import { RecipeViewComponent } from './components/recipe/recipe-view/recipe-view.component';
-import { ArrayForTextAreaPipe } from './pipes/array-for-text-area.pipe';
 import { RecipeListComponent } from './components/recipe/recipe-list/recipe-list.component';
 import { SortPipe } from './pipes/sort.pipe';
+import { SplitPipe } from './pipes/split.pipe';
 
 const appRoutes: Routes = [
   {
@@ -54,7 +54,7 @@ const appRoutes: Routes = [
     AppComponent,
     RecipeEditComponent,
     RecipeViewComponent,
-    ArrayForTextAreaPipe,
+    SplitPipe,
     RecipeListComponent,
     SortPipe
   ],

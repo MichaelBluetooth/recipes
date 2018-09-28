@@ -16,7 +16,7 @@ Now you don't need to deal with all that! Find a recipe, add it to your digital 
 
 1. Install [MongoDB](https://www.mongodb.com/download-center?jmp=homepage#community) if it's not already installed on your environment.
 2. Install dependencies if you haven't already `npm install` 
-3. Build the project `ng build --output-path dist`
+3. Build the project in watch mode `npm run build:w`
 4. Serve up the project `npm run start`
 5. Navigate open your browser and navigate to the project. It will be running on localhost:8080
 

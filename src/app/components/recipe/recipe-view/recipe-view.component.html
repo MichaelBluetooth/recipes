@@ -15,12 +15,12 @@
 
 <h3>Ingredients</h3>
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">{{ingredient}}</li>
+  <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients | split:'\n'">{{ingredient}}</li>
 </ul>
 
 <h3>Instructions</h3>
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let instruction of recipe.instructions">{{instruction}}</li>
+  <li class="list-group-item" *ngFor="let instruction of recipe.instructions | split:'\n'">{{instruction}}</li>
 </ul>
 
 <h3 *ngIf="recipe.notes">Notes</h3>
