@@ -16,6 +16,7 @@ import { RecipeViewComponent } from './components/recipe/recipe-view/recipe-view
 import { RecipeListComponent } from './components/recipe/recipe-list/recipe-list.component';
 import { SortPipe } from './pipes/sort.pipe';
 import { SplitPipe } from './pipes/split.pipe';
+import { JoinPipe } from './pipes/join.pipe';
 
 const appRoutes: Routes = [
   {
@@ -56,7 +57,8 @@ const appRoutes: Routes = [
     RecipeViewComponent,
     SplitPipe,
     RecipeListComponent,
-    SortPipe
+    SortPipe,
+    JoinPipe
   ],
   imports: [
     BrowserModule,
