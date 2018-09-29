@@ -36,10 +36,6 @@ export class RecipeEditComponent implements OnInit {
     }
   }
 
-  getButtonText(): string {
-    return this.recipe._id ? 'Save' : 'Create';
-  }
-
   delete() {
     const confirmed = confirm('Are you sure you want to delete this recipe? This cannot be undone.');
     if (confirmed) {
