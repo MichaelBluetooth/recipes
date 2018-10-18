@@ -17,11 +17,17 @@ import { RecipeListComponent } from './components/recipe/recipe-list/recipe-list
 import { SortPipe } from './pipes/sort.pipe';
 import { SplitPipe } from './pipes/split.pipe';
 import { JoinPipe } from './pipes/join.pipe';
+import { FilterPipe } from './pipes/filter/filter.pipe';
+import { RecipeListGroupComponent } from './components/recipe/recipe-list/recipe-list-group/recipe-list-group.component';
+import { RecipesResolver } from './resolvers/recipes.resolver';
 
 const appRoutes: Routes = [
   {
     path: 'recipes',
-    component: RecipeListComponent
+    component: RecipeListComponent,
+    resolve: {
+      recipes: RecipesResolver
+    }
   },
   {
     path: 'recipes/new',
@@ -58,7 +64,9 @@ const appRoutes: Routes = [
     SplitPipe,
     RecipeListComponent,
     SortPipe,
-    JoinPipe
+    JoinPipe,
+    FilterPipe,
+    RecipeListGroupComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +79,8 @@ const appRoutes: Routes = [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     ErrorService,
     RecipeService,
-    RecipeResolver
+    RecipeResolver,
+    RecipesResolver
   ],
   bootstrap: [AppComponent]
 })

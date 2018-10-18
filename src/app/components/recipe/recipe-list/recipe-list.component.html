@@ -1,7 +1,13 @@
 <button class="btn btn-primary" [routerLink]="['/recipes/new']">New</button>
-<div class="list-group">
-  <a class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let recipe of recipes | sort:'favorite'" href="#"
-    [routerLink]="['/recipes/' + recipe._id]">
-    <span *ngIf="recipe.favorite" class="favorite-star fa fa-star fa-lg"></span> {{recipe.name | uppercase}}
-  </a>
-</div>
+<h2>Dinner</h2>
+<app-recipe-list-group [recipes]="dinnerRecipes"></app-recipe-list-group>
+<h2>Lunch</h2>
+<app-recipe-list-group [recipes]="lunchRecipes"></app-recipe-list-group>
+<h2>Breakfast</h2>
+<app-recipe-list-group [recipes]="breakfastRecipes"></app-recipe-list-group>
+<h2>Dessert</h2>
+<app-recipe-list-group [recipes]="dessertRecipes"></app-recipe-list-group>
+<h2>Snack</h2>
+<app-recipe-list-group [recipes]="snackRecipes"></app-recipe-list-group>
+<h2>Uncategorized</h2>
+<app-recipe-list-group [recipes]="uncategorizedRecipes"></app-recipe-list-group>
