@@ -1,13 +1,13 @@
 <button class="btn btn-primary" [routerLink]="['/recipes/new']">New</button>
-<h2>Dinner</h2>
+<h2 *ngIf="dinnerRecipes.length > 0">Dinner</h2>
 <app-recipe-list-group [recipes]="dinnerRecipes"></app-recipe-list-group>
-<h2>Lunch</h2>
+<h2 *ngIf="lunchRecipes.length > 0">Lunch</h2>
 <app-recipe-list-group [recipes]="lunchRecipes"></app-recipe-list-group>
-<h2>Breakfast</h2>
+<h2 *ngIf="breakfastRecipes.length > 0">Breakfast</h2>
 <app-recipe-list-group [recipes]="breakfastRecipes"></app-recipe-list-group>
-<h2>Dessert</h2>
+<h2 *ngIf="dessertRecipes.length > 0">Dessert</h2>
 <app-recipe-list-group [recipes]="dessertRecipes"></app-recipe-list-group>
-<h2>Snack</h2>
+<h2 *ngIf="snackRecipes.length > 0">Snack</h2>
 <app-recipe-list-group [recipes]="snackRecipes"></app-recipe-list-group>
-<h2>Uncategorized</h2>
+<h2 *ngIf="uncategorizedRecipes.length > 0">Uncategorized</h2>
 <app-recipe-list-group [recipes]="uncategorizedRecipes"></app-recipe-list-group>
