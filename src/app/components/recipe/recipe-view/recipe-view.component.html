@@ -20,7 +20,8 @@
 
 <h3>Instructions</h3>
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let instruction of recipe.instructions | split:'\n'">{{instruction}}</li>
+  <li class="list-group-item" *ngFor="let instruction of recipe.instructions | split:'\n'; let idx = index">
+    {{idx+1}}. {{instruction}}</li>
 </ul>
 
 <h3 *ngIf="recipe.notes">Notes</h3>
