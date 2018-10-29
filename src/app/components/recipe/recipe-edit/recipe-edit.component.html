@@ -1,33 +1,3 @@
 <button type="button" class="btn btn-primary" (click)="create()">Save</button>
 <button class="btn btn-warning" *ngIf="id" (click)="delete()">Delete</button>
-<div class="form-group">
-  <label for="recipeName">Name</label>
-  <input type="text" class="form-control" id="recipeName" placeholder="Enter a name" [(ngModel)]="recipe.name" required>
-</div>
-<div class="form-group">
-  <label for="recipeDescription">Description</label>
-  <textarea autosize id="recipeDescription" class="form-control" rows="2" [(ngModel)]="recipe.description"></textarea>
-</div>
-<div class="form-group">
-  <label for="recipeCategory">Category</label>
-  <select class="form-control" id="recipeCategory" [(ngModel)]="recipe.category">
-    <option ngValue=""></option>
-    <option ngValue="Breakfast">Breakfast</option>
-    <option ngValue="Lunch">Lunch</option>
-    <option ngValue="Dinner">Dinner</option>
-    <option ngValue="Dessert">Dessert</option>
-    <option ngValue="Snack">Snack</option>
-  </select>
-</div>
-<div class="form-group">
-  <label for="recipeIngredients">Ingredients</label>
-  <textarea autosize id="recipeIngredients" class="form-control" rows="5" [(ngModel)]="recipe.ingredients" required></textarea>
-</div>
-<div class="form-group">
-  <label for="recipeInstructions">Instructions</label>
-  <textarea autosize id="recipeInstructions" class="form-control" rows="5" [(ngModel)]="recipe.instructions" required></textarea>
-</div>
-<div class="form-group">
-  <label for="recipeNotes">Notes</label>
-  <textarea autosize id="recipeNotes" class="form-control" rows="5" [(ngModel)]="recipe.notes"></textarea>
-</div>
+<af-form *ngIf="recipeDefinition" [(formData)]="recipe" [formDefinition]="recipeDefinition"></af-form>

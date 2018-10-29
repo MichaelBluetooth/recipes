@@ -48,9 +48,61 @@ export class RecipeService {
 
   setFavorite(id: string, favorite: boolean): Promise<void | Recipe> {
     const putUrl = this.recipesUrl + '/' + id;
-    return this.http.put(putUrl, {favorite: favorite})
+    return this.http.put(putUrl, { favorite: favorite })
       .toPromise()
       .then(response => response.json() as Recipe)
       .catch(this.errorService.handleError);
+  }
+
+  getRecipeMetadata(): Promise<void | any> {
+    return Promise.resolve(
+      {
+        layout: [['name'], ['description'], ['category'], ['instructions'], ['ingredients'], ['notes']],
+        fields: [
+          {
+            name: 'name',
+            label: 'Name',
+            fieldType: 'Text',
+            readOnly: false,
+            focus: true,
+            validations: [{name: 'Required'}]
+          },
+          {
+            name: 'description',
+            label: 'Description',
+            fieldType: 'Memo',
+            readOnly: false,
+            rows: 3
+          },
+          {
+            name: 'category',
+            label: 'Category',
+            fieldType: 'List',
+            readOnly: false,
+            listOptions: ['', 'Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert']
+          },
+          {
+            name: 'ingredients',
+            label: 'Ingredients',
+            fieldType: 'Memo',
+            readOnly: false,
+            rows: 5
+          },
+          {
+            name: 'instructions',
+            label: 'Instructions',
+            fieldType: 'Memo',
+            readOnly: false,
+            rows: 5
+          },
+          {
+            name: 'notes',
+            label: 'Notes',
+            fieldType: 'Memo',
+            readOnly: false,
+            rows: 5
+          }
+        ]
+      });
   }
 }

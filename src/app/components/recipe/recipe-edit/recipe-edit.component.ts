@@ -11,6 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class RecipeEditComponent implements OnInit {
 
   recipe: Recipe = new Recipe();
+  recipeDefinition: any;
 
   constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -21,6 +22,10 @@ export class RecipeEditComponent implements OnInit {
       } else {
         this.recipe = new Recipe();
       }
+    });
+
+    this.recipeService.getRecipeMetadata().then(recipeDefinition => {
+      this.recipeDefinition = recipeDefinition;
     });
   }
 

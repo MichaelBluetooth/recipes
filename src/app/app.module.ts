@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HashLocationStrategy, Location, LocationStrategy } from '@angular/common';
 
 import { Autosize } from 'ng-autosize';
+import { NgAutoFormModule } from 'ng-auto-form-lib';
 
 import { AppComponent } from './app.component';
 import { ErrorService } from './services/error/error.service';
@@ -72,7 +73,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgAutoFormModule.forRoot({ relationshipService: null })
   ],
   providers: [
     Location,
