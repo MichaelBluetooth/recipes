@@ -21,6 +21,11 @@ import { JoinPipe } from './pipes/join.pipe';
 import { FilterPipe } from './pipes/filter/filter.pipe';
 import { RecipeListGroupComponent } from './components/recipe/recipe-list/recipe-list-group/recipe-list-group.component';
 import { RecipesResolver } from './resolvers/recipes.resolver';
+import { GroceryItemEditComponent } from './components/grocery/grocery-item-edit/grocery-item-edit.component';
+import { GroceryItemService } from './services/grocery/grocery-item.service';
+import { GroceryItemListComponent } from './components/grocery/grocery-item-list/grocery-item-list.component';
+import { GroceryItemResolver } from './resolvers/grocery-item.resolver';
+import { GroceryItemsResolver } from './resolvers/grocery-items.resolver';
 
 const appRoutes: Routes = [
   {
@@ -48,6 +53,26 @@ const appRoutes: Routes = [
       recipe: RecipeResolver
     }
   },
+
+  {
+    path: 'groceryitems',
+    component: GroceryItemListComponent,
+    resolve: {
+      groceryitems: GroceryItemsResolver
+    }
+  },
+  {
+    path: 'groceryitems/new',
+    component: GroceryItemEditComponent
+  },
+  {
+    path: 'groceryitems/:id/edit',
+    component: GroceryItemEditComponent,
+    resolve: {
+      groceryitem: GroceryItemResolver
+    }
+  },
+
   {
     path: '',
     redirectTo: '/recipes',
@@ -67,7 +92,9 @@ const appRoutes: Routes = [
     SortPipe,
     JoinPipe,
     FilterPipe,
-    RecipeListGroupComponent
+    RecipeListGroupComponent,
+    GroceryItemEditComponent,
+    GroceryItemListComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +109,10 @@ const appRoutes: Routes = [
     ErrorService,
     RecipeService,
     RecipeResolver,
-    RecipesResolver
+    RecipesResolver,
+    GroceryItemService,
+    GroceryItemResolver,
+    GroceryItemsResolver,
   ],
   bootstrap: [AppComponent]
 })

@@ -5,6 +5,7 @@ var ObjectID = mongodb.ObjectID;
 
 var INGREDIENTS_COLLECTION = "ingredients";
 var RECIPES_COLLECTION = "recipes";
+var GROCERYITEMS_COLLECTION = "groceryitems"
 
 var app = express();
 app.use(bodyParser.json());
@@ -171,6 +172,69 @@ app.delete("/api/recipes/:id", function(req, res) {
   db.collection(RECIPES_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
     if (err) {
       handleError(res, err.message, "Failed to delete recipe");
+    } else {
+      res.status(200).json(req.params.id);
+    }
+  });
+});
+
+//GROCERY ROUTES BELOW
+
+app.get("/api/groceryitems", function(req, res) {
+  db.collection(GROCERYITEMS_COLLECTION).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get groceryitems.");
+    } else {
+      res.status(200).json(docs);
+    }
+  });
+});
+
+app.post("/api/groceryitems", function(req, res) {
+  var newGroceryitem = req.body;
+  newGroceryitem.createDate = new Date();
+
+  if (!req.body.name) {
+    handleError(res, "Invalid user input", "Must provide a name.", 400);
+  } else {
+    db.collection(GROCERYITEMS_COLLECTION).insertOne(newGroceryitem, function(err, doc) {
+      if (err) {
+        handleError(res, err.message, "Failed to create new groceryitem.");
+      } else {
+        res.status(201).json(doc.ops[0]);
+      }
+    });
+  }
+});
+
+app.get("/api/groceryitems/:id", function(req, res) {
+  db.collection(GROCERYITEMS_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get groceryitem");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
+});
+
+app.put("/api/groceryitems/:id", function(req, res) {
+  delete req.body._id;
+  var updateDoc = {$set: req.body};
+
+  db.collection(GROCERYITEMS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to update groceryitem");
+    } else {
+      updateDoc._id = req.params.id;
+      res.status(200).json(updateDoc);
+    }
+  });
+});
+
+app.delete("/api/groceryitems/:id", function(req, res) {
+  db.collection(GROCERYITEMS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+    if (err) {
+      handleError(res, err.message, "Failed to delete groceryitem");
     } else {
       res.status(200).json(req.params.id);
     }

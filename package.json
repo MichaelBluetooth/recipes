@@ -34,6 +34,7 @@
     "ng-auto-form-lib": "file:../angular-projects/ng-auto-form/dist/ng-auto-form-lib/ng-auto-form-lib-0.0.1.tgz",
     "ng-autosize": "^1.1.0",
     "ngx-bootstrap": "^3.0.1",
+    "quagga": "^0.12.1",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
