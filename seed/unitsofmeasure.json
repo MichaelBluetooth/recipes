@@ -1,0 +1,19 @@
+[
+ {"name":"kilogram", "symbol":"kg", "unitType":"mass"},
+ {"name":"gram",     "symbol":"g",  "unitType":"mass"},
+ {"name":"milligram", "symbol":"mg", "unitType":"mass"},
+ {"name":"pound", "symbol":"lb", "unitType":"mass"},
+ {"name":"ounce", "symbol":"oz", "unitType":"mass"},
+ 
+ {"name":"cup", "symbol":"cup", "unitType":"volume"},
+ {"name":"litre", "symbol":"L", "unitType":"volume"},
+ {"name":"gallon", "symbol":"gal", "unitType":"volume"},
+ {"name":"quart", "symbol":"qt", "unitType":"volume"},
+ {"name":"pint", "symbol":"pt", "unitType":"volume"},
+ {"name":"fluid ounce", "symbol":"fl oz", "unitType":"volume"},
+ 
+ {"name":"pinch", "symbol":"pinch", "unitType":"n/a"},
+ {"name":"to taste", "symbol":"to taste", "unitType":"n/a"},
+ {"name":"teaspoon", "symbol":"tsp", "unitType":"n/a"},
+ {"name":"tablespoon", "symbol":"tbsp", "unitType":"n/a"}
+]
