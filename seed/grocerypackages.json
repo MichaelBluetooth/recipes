@@ -1,13 +1,11 @@
 [
     {
         "groceryItem": {
-            "_id": "11111111111",
             "name": "McCormick Cayenne Pepper"
         },
         "barcode": "05228616",
         "quantity": 1,
         "unit": {
-            "_id": "5bd7c829835e0a2ad06f38ba",
             "name": "ounce",
             "symbol": "oz",
             "unitType": "mass",

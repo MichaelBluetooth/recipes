@@ -95,7 +95,7 @@ app.post("/api/ingredients/bulk", function (req, res) {
     if (err) {
       handleError(res, err.message, "Failed to create new ingredient.");
     } else {
-      res.status(201).json(doc.ops[0]);
+      res.status(201).json(doc.ops);
     }
   });
 });
@@ -250,7 +250,7 @@ app.post("/api/unitsofmeasure/bulk", function (req, res) {
     if (err) {
       handleError(res, err.message, "Failed to create new unit.");
     } else {
-      res.status(201).json(doc.ops[0]);
+      res.status(201).json(doc.ops);
     }
   });
 });
@@ -370,7 +370,7 @@ app.post("/api/groceryitems/bulk", function (req, res) {
     if (err) {
       handleError(res, err.message, "Failed to create new GroceryItem.");
     } else {
-      res.status(201).json(doc.ops[0]);
+      res.status(201).json(doc.ops);
     }
   });
 });
@@ -472,7 +472,7 @@ app.post("/api/grocerypackages/bulk", function (req, res) {
     if (err) {
       handleError(res, err.message, "Failed to create new grocerypackage");
     } else {
-      res.status(201).json(doc.ops[0]);
+      res.status(201).json(doc.ops);
     }
   });
 });
