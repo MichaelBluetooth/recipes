@@ -6,6 +6,7 @@ var ObjectID = mongodb.ObjectID;
 var INGREDIENTS_COLLECTION = "ingredients";
 var RECIPES_COLLECTION = "recipes";
 var GROCERYITEMS_COLLECTION = "groceryitems"
+var GROCERYPACKAGES_COLLECTION = "grocerypackages"
 var UNITSOFMEASURE_COLLECTION = 'unitsofmeasure'
 
 var app = express();
@@ -74,6 +75,29 @@ app.post("/api/ingredients", function (req, res) {
       }
     });
   }
+});
+
+app.post("/api/ingredients/bulk", function (req, res) {
+  var validationError = false;
+
+  req.body.forEach(newIngredient => {
+    newIngredient.createDate = new Date();
+    if (!newIngredient.name) {
+      validationError = true;
+    }
+  });
+
+  if (validationError) {
+    handleError(res, "Invalid user input", "Must provide a name.", 400);
+  }
+
+  db.collection(INGREDIENTS_COLLECTION).insertMany(req.body, function (err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to create new ingredient.");
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
 });
 
 /*  "/api/ingredients/:id"
@@ -265,7 +289,7 @@ app.delete("/api/unitsofmeasure/:id", function (req, res) {
   });
 });
 
-//GROCERY ROUTES BELOW
+//GROCERYITEM ROUTES BELOW
 
 app.get("/api/groceryitems", function (req, res) {
   db.collection(GROCERYITEMS_COLLECTION).find({}).toArray(function (err, docs) {
@@ -324,6 +348,131 @@ app.delete("/api/groceryitems/:id", function (req, res) {
       handleError(res, err.message, "Failed to delete groceryitem");
     } else {
       res.status(200).json(req.params.id);
+    }
+  });
+});
+
+app.post("/api/groceryitems/bulk", function (req, res) {
+  var validationError = false;
+
+  req.body.forEach(newGroceryItem => {
+    newGroceryItem.createDate = new Date();
+    if (!newGroceryItem.name) {
+      validationError = true;
+    }
+  });
+
+  if (validationError) {
+    handleError(res, "Invalid user input", "Must provide a name.", 400);
+  }
+
+  db.collection(GROCERYITEMS_COLLECTION).insertMany(req.body, function (err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to create new GroceryItem.");
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
+});
+
+//GROCERYPACKAGE ROUTES BELOW
+
+app.get("/api/grocerypackages", function (req, res) {
+  db.collection(GROCERYPACKAGES_COLLECTION).find({}).toArray(function (err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get grocerypackages.");
+    } else {
+      res.status(200).json(docs);
+    }
+  });
+});
+
+app.post("/api/grocerypackages", function (req, res) {
+  var newGroceryPackage = req.body;
+  newGroceryPackage.createDate = new Date();
+
+  if (!req.body.barcode) {
+    handleError(res, "Invalid user input", "Must provide a barcode.", 400);
+  } else {
+    db.collection(GROCERYPACKAGES_COLLECTION).insertOne(newGroceryPackage, function (err, doc) {
+      if (err) {
+        handleError(res, err.message, "Failed to create new grocerypackage.");
+      } else {
+        res.status(201).json(doc.ops[0]);
+      }
+    });
+  }
+});
+
+app.get("/api/grocerypackages/search", function (req, res) {
+  var query = JSON.parse(req.query.q);
+  for(var key in query){
+    if(query.hasOwnProperty(key)){
+      query[key] = new RegExp(query[key]);
+    }
+  }
+  db.collection(GROCERYPACKAGES_COLLECTION).find(query).toArray(function (err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get grocerypackage");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
+});
+
+app.get("/api/grocerypackages/:id", function (req, res) {
+  db.collection(GROCERYPACKAGES_COLLECTION).findOne({ _id: new ObjectID(req.params.id) }, function (err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get grocerypackage");
+    } else {
+      res.status(200).json(doc);
+    }
+  });
+});
+
+app.put("/api/grocerypackages/:id", function (req, res) {
+  delete req.body._id;
+  var updateDoc = { $set: req.body };
+
+  db.collection(GROCERYPACKAGES_COLLECTION).updateOne({ _id: new ObjectID(req.params.id) }, updateDoc, function (err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to update grocerypackage");
+    } else {
+      updateDoc._id = req.params.id;
+      res.status(200).json(updateDoc);
+    }
+  });
+});
+
+app.delete("/api/grocerypackages/:id", function (req, res) {
+  db.collection(GROCERYPACKAGES_COLLECTION).deleteOne({ _id: new ObjectID(req.params.id) }, function (err, result) {
+    if (err) {
+      handleError(res, err.message, "Failed to delete grocerypackage");
+    } else {
+      res.status(200).json(req.params.id);
+    }
+  });
+});
+
+app.post("/api/grocerypackages/bulk", function (req, res) {
+  var validationError = false;
+
+  req.body.forEach(newGroceryPackage => {
+    newGroceryPackage.createDate = new Date();
+    if (!newGroceryPackage.barcode) {
+      validationError = true;
+    }
+  });
+
+  if (validationError) {
+    handleError(res, "Invalid user input", "Must provide a barcode.", 400);
+  }
+
+  db.collection(GROCERYPACKAGES_COLLECTION).insertMany(req.body, function (err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to create new grocerypackage");
+    } else {
+      res.status(201).json(doc.ops[0]);
     }
   });
 });
