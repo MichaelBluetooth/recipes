@@ -1,5 +1,5 @@
 <button type="button" class="btn btn-primary" (click)="create()">Save</button>
-<button class="btn btn-warning" *ngIf="groceryItem._id" (click)="delete()">Delete</button>
+<button type="button" class="btn btn-warning" [routerLink]="['/groceryitems/' + groceryItem._id]">Cancel</button>
 <af-form *ngIf="groceryItemDefinition" [(formData)]="groceryItem" [formDefinition]="groceryItemDefinition"></af-form>
 <button class="btn btn-secondary" (click)="addNewPackage()">Add New Size  <i class="fa fa-plus"></i></button>
 <h3 *ngIf="groceryPackages.length > 0">Sizes</h3>

@@ -48,13 +48,13 @@ export class GroceryItemEditComponent implements OnInit {
     if (this.groceryItem._id) {
       this.groceryItemService.updateGroceryItem(this.groceryItem).then((created: GroceryItem) => {
         this.createOrUpdatePackages().then(() => {
-          this.router.navigate(['groceryitems']);
+          this.router.navigate(['groceryitems/' + this.groceryItem._id]);
         });
       });
     } else {
       this.groceryItemService.createGroceryItem(this.groceryItem).then((created: GroceryItem) => {
         this.createOrUpdatePackages().then(() => {
-          this.router.navigate(['groceryitems']);
+          this.router.navigate(['groceryitems/' + this.groceryItem._id]);
         });
       });
     }
@@ -76,15 +76,6 @@ export class GroceryItemEditComponent implements OnInit {
         resolve();
       });
     });
-  }
-
-  delete() {
-    const confirmed = confirm('Are you sure you want to delete this grocery item? This cannot be undone.');
-    if (confirmed) {
-      this.groceryItemService.deleteGroceryItem(this.groceryItem._id).then(() => {
-        this.router.navigate(['groceryitems']);
-      });
-    }
   }
 
   addNewPackage() {

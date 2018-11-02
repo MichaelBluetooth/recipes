@@ -1,0 +1,9 @@
+<button type="button btn-standard-spacing" class="btn btn-primary" [routerLink]="['/groceryitems/' + groceryItem._id + '/edit']">Edit</button>
+<button class="btn btn-warning btn-standard-spacing" *ngIf="groceryItem._id" (click)="delete()">Delete</button>
+<af-form *ngIf="groceryItem && groceryItemFormDefinition" [formData]="groceryItem" [formDefinition]="groceryItemFormDefinition"></af-form>
+<h3>Sizes</h3>
+<div class="list-group" *ngIf="groceryPackages">
+  <div class="list-group-item" *ngFor="let groceryPackage of groceryPackages | sort:'dateCreated'">
+      {{groceryPackage.quantity + ' ' + (groceryPackage.unit ? groceryPackage.unit.name : '') + ' ' + groceryPackage.packageDescription + ' (' + groceryPackage.barcode + ')'}}
+  </div>
+</div>
