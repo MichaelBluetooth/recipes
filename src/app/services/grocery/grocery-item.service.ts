@@ -64,7 +64,6 @@ export class GroceryItemService {
             label: 'Name',
             fieldType: 'Text',
             readOnly: false,
-            focus: true,
             validations: [{ name: 'Required' }]
           }
         ]

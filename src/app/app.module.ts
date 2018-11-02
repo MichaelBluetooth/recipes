@@ -29,6 +29,7 @@ import { GroceryItemsResolver } from './resolvers/grocery-items.resolver';
 import { GroceryPackageService } from './services/grocery/grocery-package.service';
 import { RelationshipPickerService } from './services/relationship-picker/relationship-picker.service';
 import { GroceryPackagesResolver } from './resolvers/grocery-packages.resolver';
+import { GroceryItemViewComponent } from './components/grocery/grocery-item-view/grocery-item-view.component';
 
 const appRoutes: Routes = [
   {
@@ -69,6 +70,14 @@ const appRoutes: Routes = [
     component: GroceryItemEditComponent
   },
   {
+    path: 'groceryitems/:id',
+    component: GroceryItemViewComponent,
+    resolve: {
+      groceryitem: GroceryItemResolver,
+      grocerypackages: GroceryPackagesResolver
+    }
+  },
+  {
     path: 'groceryitems/:id/edit',
     component: GroceryItemEditComponent,
     resolve: {
@@ -98,7 +107,8 @@ const appRoutes: Routes = [
     FilterPipe,
     RecipeListGroupComponent,
     GroceryItemEditComponent,
-    GroceryItemListComponent
+    GroceryItemListComponent,
+    GroceryItemViewComponent
   ],
   imports: [
     BrowserModule,
