@@ -208,7 +208,7 @@ app.delete("/api/recipes/:id", function (req, res) {
 app.get("/api/unitsofmeasure", function (req, res) {
   db.collection(UNITSOFMEASURE_COLLECTION).find({}).toArray(function (err, docs) {
     if (err) {
-      handleError(res, err.message, "Failed to get groceryitems.");
+      handleError(res, err.message, "Failed to get units of mesaure.");
     } else {
       res.status(200).json(docs);
     }
@@ -406,8 +406,8 @@ app.post("/api/grocerypackages", function (req, res) {
 
 app.get("/api/grocerypackages/search", function (req, res) {
   var query = JSON.parse(req.query.q);
-  for(var key in query){
-    if(query.hasOwnProperty(key)){
+  for (var key in query) {
+    if (query.hasOwnProperty(key)) {
       query[key] = new RegExp(query[key]);
     }
   }

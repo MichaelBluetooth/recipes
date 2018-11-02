@@ -26,6 +26,9 @@ import { GroceryItemService } from './services/grocery/grocery-item.service';
 import { GroceryItemListComponent } from './components/grocery/grocery-item-list/grocery-item-list.component';
 import { GroceryItemResolver } from './resolvers/grocery-item.resolver';
 import { GroceryItemsResolver } from './resolvers/grocery-items.resolver';
+import { GroceryPackageService } from './services/grocery/grocery-package.service';
+import { RelationshipPickerService } from './services/relationship-picker/relationship-picker.service';
+import { GroceryPackagesResolver } from './resolvers/grocery-packages.resolver';
 
 const appRoutes: Routes = [
   {
@@ -69,7 +72,8 @@ const appRoutes: Routes = [
     path: 'groceryitems/:id/edit',
     component: GroceryItemEditComponent,
     resolve: {
-      groceryitem: GroceryItemResolver
+      groceryitem: GroceryItemResolver,
+      grocerypackages: GroceryPackagesResolver
     }
   },
 
@@ -101,18 +105,21 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    NgAutoFormModule.forRoot({ relationshipService: null })
+    NgAutoFormModule.forRoot({ relationshipService: RelationshipPickerService })
   ],
   providers: [
     Location,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     ErrorService,
+    RelationshipPickerService,
     RecipeService,
     RecipeResolver,
     RecipesResolver,
     GroceryItemService,
     GroceryItemResolver,
     GroceryItemsResolver,
+    GroceryPackageService,
+    GroceryPackagesResolver
   ],
   bootstrap: [AppComponent]
 })

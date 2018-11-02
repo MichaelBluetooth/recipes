@@ -1,3 +1,16 @@
-button{
-    margin-right: 8px;
+button {
+    margin: 8px
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-short {
+    margin-top: 24px;
+    width: 40px;
+}
+
+.flex-wide {
+    flex: 1;
 }
