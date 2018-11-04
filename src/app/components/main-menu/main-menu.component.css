@@ -1,0 +1,32 @@
+.main-menu-container {
+    position: absolute;
+    top: 0;
+    background-color: purple;
+    opacity: 0.85;
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    color: white;
+}
+a:hover {
+    cursor: pointer;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.menu-items {
+    position: relative;
+    top: 20%;
+    color: white;
+    font-size: 50px;
+}
+
+.menu-item {
+    padding: 20px;
+}

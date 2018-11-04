@@ -1,0 +1,8 @@
+<div *ngIf="!hide" class="main-menu-container">  
+  <a class="no-style pull-right btn-standard-spacing relative" href="#" (click)="toggle()"><i class="fa fa-times fa-3x icon-light"></i></a>
+
+  <div class="menu-items text-center">
+    <div class="menu-item"><a (click)="navigate('recipes')">Recipes</a></div>
+    <div class="menu-item"><a (click)="navigate('groceryitems')">Grocery Items</a></div>
+  </div>
+</div>

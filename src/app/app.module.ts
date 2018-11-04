@@ -30,6 +30,7 @@ import { GroceryPackageService } from './services/grocery/grocery-package.servic
 import { RelationshipPickerService } from './services/relationship-picker/relationship-picker.service';
 import { GroceryPackagesResolver } from './resolvers/grocery-packages.resolver';
 import { GroceryItemViewComponent } from './components/grocery/grocery-item-view/grocery-item-view.component';
+import { MainMenuComponent } from './components/main-menu/main-menu.component';
 
 const appRoutes: Routes = [
   {
@@ -108,7 +109,8 @@ const appRoutes: Routes = [
     RecipeListGroupComponent,
     GroceryItemEditComponent,
     GroceryItemListComponent,
-    GroceryItemViewComponent
+    GroceryItemViewComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,

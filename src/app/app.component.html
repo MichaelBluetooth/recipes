@@ -1,6 +1,8 @@
-<nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">My Recipes</a>
-</nav>
+<div class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand" href="#" [routerLink]="['/recipes']">My Recipes</a>
+  <a class="no-style" *ngIf="mainMenuHidden" (click)="toggleMainMenuVisibility()"><i class="fa fa-bars fa-2x icon-dark"></i></a>
+</div>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
+<app-main-menu [(hide)]="mainMenuHidden"></app-main-menu>

@@ -1,4 +1,4 @@
-<button class="btn btn-primary" [routerLink]="['/recipes/new']">New</button>
+<button class="btn btn-primary btn-standard-spacing" [routerLink]="['/recipes/new']">New</button>
 <h2 *ngIf="dinnerRecipes.length > 0">Dinner</h2>
 <app-recipe-list-group [recipes]="dinnerRecipes"></app-recipe-list-group>
 <h2 *ngIf="lunchRecipes.length > 0">Lunch</h2>

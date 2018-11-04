@@ -11,3 +11,15 @@
 .btn-standard-spacing {
     margin: 8px;
 }
+
+.no-style {
+    text-decoration: none;
+}
+
+.icon-light {
+    color: white;
+}
+
+.icon-dark {
+    color: black;
+}
