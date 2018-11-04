@@ -4,7 +4,7 @@
 <button class="btn btn-secondary" (click)="addNewPackage()">Add New Size  <i class="fa fa-plus"></i></button>
 <h3 *ngIf="groceryPackages.length > 0">Sizes</h3>
 <ng-container *ngIf="groceryPackageDefinition">
-    <div class="flex-container" *ngFor="let pkg of groceryPackages; let idx = index">
+    <div class="flex-container" *ngFor="let pkg of groceryPackages; let idx = index; trackBy:trackByFn">
         <div class="flex-short">
             <button class="btn" (click)="deletePackage(idx)"><i class="fa fa-trash"></i></button>
         </div>

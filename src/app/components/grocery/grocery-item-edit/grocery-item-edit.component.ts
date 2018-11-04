@@ -94,4 +94,7 @@ export class GroceryItemEditComponent implements OnInit {
     }
   }
 
+  trackByFn(index: any, item: any) {
+    return index;
+ }
 }

@@ -7,3 +7,7 @@
 .clickable {
     cursor: pointer;
 }
+
+.btn-standard-spacing {
+    margin: 8px;
+}
