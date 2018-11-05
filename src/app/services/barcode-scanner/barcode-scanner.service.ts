@@ -66,8 +66,6 @@ export class BarcodeScannerService {
     });
 
     Quagga.onDetected((result) => {
-      alert(result.codeResult.code);
-      console.log('Barcode detected and processed : [' + result.codeResult.code + ']', result);
       this.onBarcodeScanned.next(result.codeResult.code);
     });
 

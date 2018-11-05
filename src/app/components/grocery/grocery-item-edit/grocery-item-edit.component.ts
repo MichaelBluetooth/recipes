@@ -8,6 +8,7 @@ import { GroceryPackageService } from 'src/app/services/grocery/grocery-package.
 import Quagga from 'quagga';
 
 import { BarcodeScannerService } from 'src/app/services/barcode-scanner/barcode-scanner.service';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-grocery-item-edit',
@@ -111,10 +112,12 @@ export class GroceryItemEditComponent implements OnInit {
 
   startScanner() {
     this.scannerRunning = true;
-    this.barcodeScannerService.startScanner('#scanner-container').subscribe(newBarcode => {
-      this.addNewPackage(newBarcode);
-      this.barcodeScannerService.stopScanner();
-      this.scannerRunning = false;
-    });
+    this.barcodeScannerService.startScanner('#scanner-container')
+      .pipe(distinctUntilChanged())
+      .subscribe(newBarcode => {
+        this.addNewPackage(newBarcode);
+        this.barcodeScannerService.stopScanner();
+        this.scannerRunning = false;
+      });
   }
 }
