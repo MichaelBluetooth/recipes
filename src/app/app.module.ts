@@ -31,6 +31,8 @@ import { RelationshipPickerService } from './services/relationship-picker/relati
 import { GroceryPackagesResolver } from './resolvers/grocery-packages.resolver';
 import { GroceryItemViewComponent } from './components/grocery/grocery-item-view/grocery-item-view.component';
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { WindowRefService } from './services/window-ref/window-ref.service';
+import { BarcodeScannerService } from './services/barcode-scanner/barcode-scanner.service';
 
 const appRoutes: Routes = [
   {
@@ -122,8 +124,10 @@ const appRoutes: Routes = [
   providers: [
     Location,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
+    WindowRefService,
     ErrorService,
     RelationshipPickerService,
+    BarcodeScannerService,
     RecipeService,
     RecipeResolver,
     RecipesResolver,

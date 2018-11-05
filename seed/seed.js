@@ -6,7 +6,7 @@ function loadUnits() {
     var promise = new Promise((resolve) => {
         const units = require('./unitsofmeasure.json');
         request({
-            url: 'http://localhost:8080/api/unitsofmeasure/bulk',
+            url: 'https://fathomless-depths-15523.herokuapp.com/api/unitsofmeasure/bulk',
             method: 'POST',
             json: units
         }, function (error, httpResponse, body) {            
@@ -23,7 +23,7 @@ function loadGroceryItems() {
     var promise = new Promise((resolve) => {
         const groceryItems = require('./groceryitems.json');
         request({
-            url: 'http://localhost:8080/api/groceryitems/bulk',
+            url: 'https://fathomless-depths-15523.herokuapp.com/api/groceryitems/bulk',
             method: 'POST',
             json: groceryItems
         }, function (error, httpResponse, body) {
@@ -44,7 +44,7 @@ function loadGroceryPackages() {
                 package.groceryItem = groceryItemsByName[package.groceryItem.name]
         });
         request({
-            url: 'http://localhost:8080/api/grocerypackages/bulk',
+            url: 'https://fathomless-depths-15523.herokuapp.com/api/grocerypackages/bulk',
             method: 'POST',
             json: groceryPackages
         }, function (error, httpResponse, body) {

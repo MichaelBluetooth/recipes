@@ -1,7 +1,8 @@
 <button type="button" class="btn btn-primary btn-standard-spacing" (click)="create()">Save</button>
 <button type="button" class="btn btn-warning btn-standard-spacing" [routerLink]="['/groceryitems/' + groceryItem._id]">Cancel</button>
 <af-form *ngIf="groceryItemDefinition" [(formData)]="groceryItem" [formDefinition]="groceryItemDefinition"></af-form>
-<button class="btn btn-secondary" (click)="addNewPackage()">Add New Size  <i class="fa fa-plus"></i></button>
+<button class="btn btn-secondary btn-standard-spacing" (click)="addNewPackage()">Add New Size  <i class="fa fa-plus"></i></button>
+<button class="btn btn-secondary btn-standard-spacing" (click)="startScanner()">Start Scanner  <i class="fa fa-barcode"></i></button>
 <h3 *ngIf="groceryPackages.length > 0">Sizes</h3>
 <ng-container *ngIf="groceryPackageDefinition">
     <div class="flex-container" *ngFor="let pkg of groceryPackages; let idx = index; trackBy:trackByFn">
@@ -13,3 +14,4 @@
         </div>
     </div>
 </ng-container>
+<div [hidden]="!scannerRunning" id="scanner-container"></div>

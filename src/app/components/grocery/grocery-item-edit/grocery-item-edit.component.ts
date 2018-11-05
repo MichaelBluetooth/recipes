@@ -1,9 +1,13 @@
+import { WindowRefService } from './../../../services/window-ref/window-ref.service';
 import { Component, OnInit } from '@angular/core';
 import { GroceryItem } from 'src/app/models/groceryitem';
 import { GroceryItemService } from 'src/app/services/grocery/grocery-item.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GroceryPackage } from 'src/app/models/grocerypackage';
 import { GroceryPackageService } from 'src/app/services/grocery/grocery-package.service';
+import Quagga from 'quagga';
+
+import { BarcodeScannerService } from 'src/app/services/barcode-scanner/barcode-scanner.service';
 
 @Component({
   selector: 'app-grocery-item-edit',
@@ -16,11 +20,14 @@ export class GroceryItemEditComponent implements OnInit {
   groceryItemDefinition: any;
   groceryPackages: GroceryPackage[] = [];
   groceryPackageDefinition: any;
+  scannerRunning = false;
 
   constructor(private groceryItemService: GroceryItemService,
     private groceryPackageService: GroceryPackageService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,
+    private barcodeScannerService: BarcodeScannerService,
+    private windowRef: WindowRefService) { }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe((routeData) => {
@@ -78,8 +85,12 @@ export class GroceryItemEditComponent implements OnInit {
     });
   }
 
-  addNewPackage() {
-    this.groceryPackages = [new GroceryPackage()].concat(this.groceryPackages);
+  addNewPackage(barcode?: string) {
+    const newPackage = new GroceryPackage();
+    if (barcode) {
+      newPackage.barcode = barcode;
+    }
+    this.groceryPackages = [newPackage].concat(this.groceryPackages);
   }
 
   deletePackage(idx: number) {
@@ -96,5 +107,14 @@ export class GroceryItemEditComponent implements OnInit {
 
   trackByFn(index: any, item: any) {
     return index;
- }
+  }
+
+  startScanner() {
+    this.scannerRunning = true;
+    this.barcodeScannerService.startScanner('#scanner-container').subscribe(newBarcode => {
+      this.addNewPackage(newBarcode);
+      this.barcodeScannerService.stopScanner();
+      this.scannerRunning = false;
+    });
+  }
 }
