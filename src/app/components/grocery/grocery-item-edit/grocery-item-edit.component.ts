@@ -54,14 +54,14 @@ export class GroceryItemEditComponent implements OnInit {
 
   create() {
     if (this.groceryItem._id) {
-      this.groceryItemService.updateGroceryItem(this.groceryItem).then((created: GroceryItem) => {
-        this.groceryItem = created;
+      this.groceryItemService.updateGroceryItem(this.groceryItem).then((updated: GroceryItem) => {
         this.createOrUpdatePackages().then(() => {
           this.router.navigate(['groceryitems/' + this.groceryItem._id]);
         });
       });
     } else {
       this.groceryItemService.createGroceryItem(this.groceryItem).then((created: GroceryItem) => {
+        this.groceryItem = created;
         this.createOrUpdatePackages().then(() => {
           this.router.navigate(['groceryitems/' + this.groceryItem._id]);
         });
