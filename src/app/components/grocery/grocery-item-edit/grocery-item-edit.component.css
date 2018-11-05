@@ -11,6 +11,12 @@
     flex: 1;
 }
 
+#scanner-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 canvas.drawing,
 canvas.drawingBuffer {
     position: absolute;
