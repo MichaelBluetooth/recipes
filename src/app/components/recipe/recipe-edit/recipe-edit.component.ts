@@ -1,3 +1,4 @@
+import { SpinnerService, SpinnerStatus } from './../../../services/spinner/spinner.service';
 import { Recipe } from './../../../models/recipe';
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../../services/recipe/recipe.service';
@@ -13,7 +14,10 @@ export class RecipeEditComponent implements OnInit {
   recipe: Recipe = new Recipe();
   recipeDefinition: any;
 
-  constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private recipeService: RecipeService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private spinnerService: SpinnerService) { }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe((routeData) => {
@@ -30,12 +34,15 @@ export class RecipeEditComponent implements OnInit {
   }
 
   create() {
+    this.spinnerService.updateSpinner(SpinnerStatus.start);
     if (this.recipe._id) {
       this.recipeService.updateRecipe(this.recipe).then((createdRecipe: Recipe) => {
+        this.spinnerService.updateSpinner(SpinnerStatus.stop);
         this.router.navigate(['recipes', createdRecipe._id]);
       });
     } else {
       this.recipeService.createRecipe(this.recipe).then((createdRecipe: Recipe) => {
+        this.spinnerService.updateSpinner(SpinnerStatus.stop);
         this.router.navigate(['recipes', createdRecipe._id]);
       });
     }
@@ -44,7 +51,9 @@ export class RecipeEditComponent implements OnInit {
   delete() {
     const confirmed = confirm('Are you sure you want to delete this recipe? This cannot be undone.');
     if (confirmed) {
+      this.spinnerService.updateSpinner(SpinnerStatus.start);
       this.recipeService.deleteRecipe(this.recipe._id).then(() => {
+        this.spinnerService.updateSpinner(SpinnerStatus.stop);
         this.router.navigate(['recipes']);
       });
     }

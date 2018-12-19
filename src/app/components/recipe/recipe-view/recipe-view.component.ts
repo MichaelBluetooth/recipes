@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Recipe } from '../../../models/recipe';
 import { RecipeService } from '../../../services/recipe/recipe.service';
+import { SpinnerService, SpinnerStatus } from 'src/app/services/spinner/spinner.service';
 
 @Component({
   selector: 'app-recipe-view',
@@ -12,7 +13,10 @@ export class RecipeViewComponent implements OnInit {
 
   recipe: Recipe;
 
-  constructor(private recipeService: RecipeService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private recipeService: RecipeService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private spinnerService: SpinnerService) { }
 
   ngOnInit() {
     this.activatedRoute.data.subscribe((routeData) => {
@@ -23,7 +27,9 @@ export class RecipeViewComponent implements OnInit {
   delete() {
     const confirmed = confirm('Are you sure you want to delete this recipe? This cannot be undone.');
     if (confirmed) {
+      this.spinnerService.updateSpinner(SpinnerStatus.start);
       this.recipeService.deleteRecipe(this.recipe._id).then(() => {
+        this.spinnerService.updateSpinner(SpinnerStatus.stop);
         this.router.navigate(['recipes']);
       });
     }

@@ -33,6 +33,7 @@ import { GroceryItemViewComponent } from './components/grocery/grocery-item-view
 import { MainMenuComponent } from './components/main-menu/main-menu.component';
 import { WindowRefService } from './services/window-ref/window-ref.service';
 import { BarcodeScannerService } from './services/barcode-scanner/barcode-scanner.service';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 const appRoutes: Routes = [
   {
@@ -112,7 +113,8 @@ const appRoutes: Routes = [
     GroceryItemEditComponent,
     GroceryItemListComponent,
     GroceryItemViewComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
