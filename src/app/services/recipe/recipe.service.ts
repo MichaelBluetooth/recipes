@@ -87,14 +87,16 @@ export class RecipeService {
             label: 'Ingredients',
             fieldType: 'Memo',
             readOnly: false,
-            rows: 5
+            rows: 5,
+            validations: [{name: 'Required'}]
           },
           {
             name: 'instructions',
             label: 'Instructions',
             fieldType: 'Memo',
             readOnly: false,
-            rows: 5
+            rows: 5,
+            validations: [{name: 'Required'}]
           },
           {
             name: 'notes',
