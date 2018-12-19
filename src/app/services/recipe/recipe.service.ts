@@ -27,7 +27,6 @@ export class RecipeService {
 
   createRecipe(newRecipe: Recipe): Promise<void | Recipe> {
     return this.http.post(this.recipesUrl, newRecipe)
-      .pipe(delay(2000))
       .toPromise()
       .then(response => response.json() as Recipe)
       .catch(this.errorService.handleError);
@@ -35,7 +34,6 @@ export class RecipeService {
 
   deleteRecipe(delRecipeId: String): Promise<void | String> {
     return this.http.delete(this.recipesUrl + '/' + delRecipeId)
-      .pipe(delay(2000))
       .toPromise()
       .then(response => response.json() as String)
       .catch(this.errorService.handleError);
@@ -44,7 +42,6 @@ export class RecipeService {
   updateRecipe(putRecipe: Recipe): Promise<void | Recipe> {
     const putUrl = this.recipesUrl + '/' + putRecipe._id;
     return this.http.put(putUrl, putRecipe)
-      .pipe(delay(2000))
       .toPromise()
       .then(response => response.json() as Recipe)
       .catch(this.errorService.handleError);
