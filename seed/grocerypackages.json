@@ -1,7 +1,8 @@
 [
     {
+        "5bde5e06885b050016f99e02",
         "groceryItem": {
-            "name": "McCormick Cayenne Pepper"
+            "name": "McCormick Cayenne Pepper",
         },
         "barcode": "05228616",
         "quantity": 1,
@@ -9,8 +10,436 @@
             "name": "ounce",
             "symbol": "oz",
             "unitType": "mass",
-            "createDate": "2018-10-30T02:55:37.875Z"
         },
-        "packageDescription": "bottle"
+        "packageDescription": "bottle",
+    },
+    {
+        "barcode": "05242412",
+        "quantity": 0.7,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Ground Thyme"
+        },
+    },
+    {
+        "barcode": "05244614",
+        "quantity": 1.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Ground Mustard",
+        },
+    },
+    {
+        "barcode": "05264715",
+        "quantity": 1.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Onion Powder",
+        },
+    },
+    {
+        "barcode": "05262610",
+        "quantity": 1.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Garlic Powder",
+        },
+    },
+    {
+        "barcode": "05267615",
+        "quantity": 1.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Crushed Red Pepper",
+        },
+    },
+    {
+        "barcode": "05242810",
+        "quantity": 1.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Chili Powder",
+        },
+    },
+    {
+        "barcode": "05269613",
+        "quantity": 1.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Basil Leaves",
+        },
+    },
+    {
+        "barcode": "05244818",
+        "quantity": 1.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Paprika",
+        },
+    },
+    {
+        "barcode": "05243819",
+        "quantity": 1.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Ground Cinnamon",
+        },
+    },
+    {
+        "barcode": "01873117",
+        "quantity": 1.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Parsley Flakes",
+        },
+    },
+    {
+        "barcode": "642754",
+        "quantity": 1.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Cilantro Leaves",
+        },
+    },
+    {
+        "barcode": "0052100015422",
+        "quantity": 1.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Fiery 5 Pepper",
+        },
+    },
+    {
+        "barcode": "05221215",
+        "quantity": 0.9,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Allspice",
+        },
+    },
+    {
+        "barcode": "0052100037509",
+        "quantity": 0.9,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Ground Ginger",
+        },
+    },
+    {
+        "barcode": "05242616",
+        "quantity": 0.9,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Thyme Leaves",
+        },
+    },
+    {
+        "barcode": "0052100013374",
+        "quantity": 1.5,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Organic Ground Cumin",
+        },
+    },
+    {
+        "barcode": "0047601921112",
+        "quantity": 8,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "Weber Gourmet Burger Seasoning",
+        },
+    },
+    {
+        "barcode": "05202317",
+        "quantity": 3.12,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Perfect Pinch Rotisserie Chicken Seasoning",
+        },
+    },
+    {
+        "barcode": "05249114",
+        "quantity": 3.18,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Cajun Seasoning",
+        },
+    },
+    {
+        "barcode": "05247116",
+        "quantity": 1.81,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Organic Ground Nutmeg",
+        },
+    },
+    {
+        "barcode": "04024316",
+        "quantity": 1.9,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "Spice Islands Ground Ginger",
+        },
+    },
+    {
+        "barcode": "0052100038070",
+        "quantity": 4.5,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Ground Cumin",
+        },
+    },
+    {
+        "barcode": "05265112",
+        "quantity": 1.5,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Ground Cumin",
+        },
+    },
+    {
+        "barcode": "05271618",
+        "quantity": 0.75,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Oregano Leaves",
+        },
+    },
+    {
+        "barcode": "05284117",
+        "quantity": 1.4,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick All-Purpose Seasoning",
+        },
+    },
+    {
+        "barcode": "0052100031491",
+        "quantity": 0.46,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "grinder",
+        "groceryItem": {
+            "name": "McCormick Italian Blend",
+        },
+    },
+    {
+        "barcode": "05235315",
+        "quantity": 0.37,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass"
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Tarragon"
+        }
+    },
+    {
+        "barcode": "12257919",
+        "quantity": 0.9,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Chipotle Chili Pepper",
+        },
+    },
+    {
+        "barcode": "05228616",
+        "quantity": 1,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Cayenne Pepper",
+        },
+    },
+    {
+        "barcode": "15124513",
+        "quantity": 0.9,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Ground Gloves",
+        },
+    },
+    {
+        "barcode": "0052100634746",
+        "quantity": 3078,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass",
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Grill Mates Steak Rub",
+        },
+    },
+    {
+        "barcode": "05242412",
+        "quantity": 0.7,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass"
+        },
+        "packageDescription": "bottle",
+        "groceryItem": {
+            "name": "McCormick Ground Thyme"
+        }
+    },
+    {
+        "barcode": "948150",
+        "quantity": 1,
+        "unit": {
+            "name": "ounce",
+            "symbol": "oz",
+            "unitType": "mass"
+        },
+        "packageDescription": "Grinder",
+        "groceryItem": {
+            "name": "McCormick Black Pepper"
+        }
     }
 ]
