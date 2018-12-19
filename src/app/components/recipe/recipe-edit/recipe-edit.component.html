@@ -1,3 +1,3 @@
-<button type="button" class="btn btn-primary btn-standard-spacing" (click)="create()">Save</button>
+<button type="button" class="btn btn-primary btn-standard-spacing" (click)="create()" [disabled]="!isFormValid">Save</button>
 <button class="btn btn-warning btn-standard-spacing" *ngIf="id" (click)="delete()">Delete</button>
-<af-form *ngIf="recipeDefinition" [(formData)]="recipe" [formDefinition]="recipeDefinition"></af-form>
+<af-form *ngIf="recipeDefinition" [(formData)]="recipe" [formDefinition]="recipeDefinition" (formValidityChange)="isFormValid = $event"></af-form>

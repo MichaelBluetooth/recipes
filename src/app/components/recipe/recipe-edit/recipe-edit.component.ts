@@ -13,6 +13,7 @@ export class RecipeEditComponent implements OnInit {
 
   recipe: Recipe = new Recipe();
   recipeDefinition: any;
+  isFormValid = false;
 
   constructor(private recipeService: RecipeService,
     private router: Router,
