@@ -60,6 +60,12 @@ export class RecipeService {
         layout: [['name'], ['description'], ['category'], ['instructions'], ['ingredients'], ['notes'], ['source']],
         fields: [
           {
+            name: '_id',
+            label: 'ID',
+            fieldType: 'Text',
+            readOnly: true
+          },
+          {
             name: 'name',
             label: 'Name',
             fieldType: 'Text',
