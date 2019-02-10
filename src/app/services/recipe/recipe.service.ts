@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { ErrorService } from '../error/error.service';
 import { Http } from '@angular/http';
 import { Recipe } from '../../models/recipe';
-import { delay } from 'rxjs/operators';
 
 @Injectable()
 export class RecipeService {
@@ -58,7 +57,7 @@ export class RecipeService {
   getRecipeMetadata(): Promise<void | any> {
     return Promise.resolve(
       {
-        layout: [['name'], ['description'], ['category'], ['instructions'], ['ingredients'], ['notes']],
+        layout: [['name'], ['description'], ['category'], ['instructions'], ['ingredients'], ['notes'], ['source']],
         fields: [
           {
             name: 'name',
@@ -104,6 +103,12 @@ export class RecipeService {
             fieldType: 'Memo',
             readOnly: false,
             rows: 5
+          },
+          {
+            name: 'source',
+            label: 'Source',
+            fieldType: 'Link',
+            readOnly: false,
           }
         ]
       });

@@ -7,4 +7,5 @@ export class Recipe {
     instructions: string[] | string;
     notes?: string;
     favorite?: boolean;
+    source?: string;
 }
