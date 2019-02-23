@@ -56,6 +56,6 @@
     "request": "^2.88.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~2.9.2"
+    "typescript": "^3.1.1"
   }
 }
