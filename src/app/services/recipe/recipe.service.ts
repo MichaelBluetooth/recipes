@@ -57,7 +57,7 @@ export class RecipeService {
   getRecipeMetadata(): Promise<void | any> {
     return Promise.resolve(
       {
-        layout: [['name'], ['description'], ['category'], ['instructions'], ['ingredients'], ['notes'], ['source']],
+        layout: [['name'], ['description'], ['category'], ['ingredients'], ['instructions'], ['notes'], ['source']],
         fields: [
           {
             name: '_id',
