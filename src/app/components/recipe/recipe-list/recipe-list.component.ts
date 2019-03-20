@@ -15,6 +15,8 @@ export class RecipeListComponent implements OnInit {
   breakfastRecipes: Recipe[] = [];
   dessertRecipes: Recipe[] = [];
   snackRecipes: Recipe[] = [];
+  drinkRecipes: Recipe[] = [];
+  hotSauceRecipes: Recipe[] = [];
   uncategorizedRecipes: Recipe[] = [];
 
   constructor(private activatedRoute: ActivatedRoute) { }
@@ -37,6 +39,12 @@ export class RecipeListComponent implements OnInit {
             break;
           case 'Snack':
             this.snackRecipes.push(recipe);
+            break;
+          case 'Drink':
+            this.drinkRecipes.push(recipe);
+            break;
+          case 'Hot Sauce':
+            this.hotSauceRecipes.push(recipe);
             break;
           default:
             this.uncategorizedRecipes.push(recipe);

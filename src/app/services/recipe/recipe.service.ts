@@ -71,7 +71,7 @@ export class RecipeService {
             fieldType: 'Text',
             readOnly: false,
             focus: true,
-            validations: [{name: 'Required'}]
+            validations: [{ name: 'Required' }]
           },
           {
             name: 'description',
@@ -85,7 +85,7 @@ export class RecipeService {
             label: 'Category',
             fieldType: 'List',
             readOnly: false,
-            listOptions: ['', 'Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert']
+            listOptions: ['', 'Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert', 'Drink', 'Hot Sauce']
           },
           {
             name: 'ingredients',
@@ -93,7 +93,7 @@ export class RecipeService {
             fieldType: 'Memo',
             readOnly: false,
             rows: 5,
-            validations: [{name: 'Required'}]
+            validations: [{ name: 'Required' }]
           },
           {
             name: 'instructions',
@@ -101,7 +101,7 @@ export class RecipeService {
             fieldType: 'Memo',
             readOnly: false,
             rows: 5,
-            validations: [{name: 'Required'}]
+            validations: [{ name: 'Required' }]
           },
           {
             name: 'notes',
