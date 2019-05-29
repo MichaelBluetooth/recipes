@@ -76,11 +76,13 @@ export class GroceryItemEditComponent implements OnInit {
     return new Promise(resolve => {
       const promises = [];
       this.groceryPackages.forEach((pkg: GroceryPackage) => {
-        pkg.groceryItem = this.groceryItem;
-        if (pkg._id) {
-          promises.push(this.groceryPackageService.updateGroceryPackage(pkg));
-        } else {
-          promises.push(this.groceryPackageService.createGroceryPackage(pkg));
+        if (pkg.barcode && pkg.quantity) {
+          pkg.groceryItem = this.groceryItem;
+          if (pkg._id) {
+            promises.push(this.groceryPackageService.updateGroceryPackage(pkg));
+          } else {
+            promises.push(this.groceryPackageService.createGroceryPackage(pkg));
+          }
         }
       });
 
@@ -92,14 +94,10 @@ export class GroceryItemEditComponent implements OnInit {
 
   addNewPackage(barcode?: string) {
     if (barcode) {
-      if (this.groceryPackages.length > 0 && !this.groceryPackages[0].barcode) {
-        this.groceryPackages[this.groceryPackages.length - 1].barcode = barcode;
-      } else {
-        const newPackage = new GroceryPackage();
-        newPackage.quantity = 1;
-        newPackage.barcode = barcode;
-        this.groceryPackages = [newPackage].concat(this.groceryPackages);
-      }
+      const newPackage = new GroceryPackage();
+      newPackage.quantity = 1;
+      newPackage.barcode = barcode;
+      this.groceryPackages = [newPackage].concat(this.groceryPackages);
     }
   }
 
