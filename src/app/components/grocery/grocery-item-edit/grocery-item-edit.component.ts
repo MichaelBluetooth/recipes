@@ -36,6 +36,9 @@ export class GroceryItemEditComponent implements OnInit {
         this.groceryItem = routeData.groceryitem;
       } else {
         this.groceryItem = new GroceryItem();
+        const pkg = new GroceryPackage();
+        pkg.quantity = 1;
+        this.groceryPackages.push(pkg);
       }
 
       if (routeData.grocerypackages) {
@@ -89,6 +92,7 @@ export class GroceryItemEditComponent implements OnInit {
 
   addNewPackage(barcode?: string) {
     const newPackage = new GroceryPackage();
+    newPackage.quantity = 1;
     if (barcode) {
       newPackage.barcode = barcode;
     }

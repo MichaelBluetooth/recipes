@@ -64,7 +64,7 @@ export class GroceryPackageService {
   getGroceryPackageMetadata(): Promise<void | any> {
     return Promise.resolve(
       {
-        layout: [['barcode', 'quantity', 'unit', 'packageDescription']],
+        layout: [['barcode', 'quantity']],
         fields: [
           {
             name: '_id',
@@ -86,24 +86,24 @@ export class GroceryPackageService {
             fieldType: 'Number',
             readOnly: false
           },
-          {
-            name: 'unit',
-            label: 'Unit',
-            fieldType: 'Relationship',
-            readOnly: false,
-            displayNameField: 'name',
-            relationshipServiceConfig: {
-              pageSize: 5,
-              filterField: 'name',
-              controller: 'unitsofmeasure'
-            }
-          },
-          {
-            name: 'packageDescription',
-            label: 'Description',
-            fieldType: 'Text',
-            readOnly: false
-          }
+          // {
+          //   name: 'unit',
+          //   label: 'Unit',
+          //   fieldType: 'Relationship',
+          //   readOnly: false,
+          //   displayNameField: 'name',
+          //   relationshipServiceConfig: {
+          //     pageSize: 5,
+          //     filterField: 'name',
+          //     controller: 'unitsofmeasure'
+          //   }
+          // },
+          // {
+          //   name: 'packageDescription',
+          //   label: 'Description',
+          //   fieldType: 'Text',
+          //   readOnly: false
+          // }
         ]
       });
   }
