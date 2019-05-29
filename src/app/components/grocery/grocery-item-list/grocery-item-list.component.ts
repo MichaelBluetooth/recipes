@@ -35,7 +35,7 @@ export class GroceryItemListComponent implements OnInit {
         this.barcodeScannerService.stopScanner();
         this.scannerRunning = false;
 
-        this.packagesService.searchGroceryPackages({ 'groceryItem.barcode': barcodeSearch }).then((pkgs: GroceryPackage[]) => {
+        this.packagesService.searchGroceryPackages({ 'barcode': barcodeSearch }).then((pkgs: GroceryPackage[]) => {
           if (pkgs && pkgs.length > 0) {
             this.router.navigate(['groceryitems', pkgs[0].groceryItem._id]);
           } else {

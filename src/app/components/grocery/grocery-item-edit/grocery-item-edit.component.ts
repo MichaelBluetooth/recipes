@@ -91,12 +91,16 @@ export class GroceryItemEditComponent implements OnInit {
   }
 
   addNewPackage(barcode?: string) {
-    const newPackage = new GroceryPackage();
-    newPackage.quantity = 1;
     if (barcode) {
-      newPackage.barcode = barcode;
+      if (!this.groceryPackages[this.groceryPackages.length - 1].barcode) {
+        this.groceryPackages[this.groceryPackages.length - 1].barcode = barcode;
+      } else {
+        const newPackage = new GroceryPackage();
+        newPackage.quantity = 1;
+        newPackage.barcode = barcode;
+        this.groceryPackages = [newPackage].concat(this.groceryPackages);
+      }
     }
-    this.groceryPackages = [newPackage].concat(this.groceryPackages);
   }
 
   deletePackage(idx: number) {
