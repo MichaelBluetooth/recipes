@@ -1,4 +1,5 @@
 <button class="btn btn-primary btn-standard-spacing" [routerLink]="['/groceryitems/new']">New</button>
+<button class="btn btn-primary btn-standard-spacing" (click)="startScanner()">Find  <i class="fa fa-barcode"></i></button>
 <h2>Grocery Items</h2>
 <div class="list-group">
   <a class="list-group-item list-group-item-action" *ngFor="let groceryItem of groceryItems | sort:'name'" href="#"
@@ -6,3 +7,4 @@
     {{groceryItem.name}}
   </a>
 </div>
+<div [hidden]="!scannerRunning" id="scanner-container"></div>
