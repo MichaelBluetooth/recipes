@@ -4,6 +4,6 @@
 <h3>Sizes</h3>
 <div class="list-group" *ngIf="groceryPackages">
   <div class="list-group-item" *ngFor="let groceryPackage of groceryPackages | sort:'dateCreated'">
-      {{groceryPackage.quantity + ' ' + (groceryPackage.unit ? groceryPackage.unit.name : '') + ' ' + groceryPackage.packageDescription + ' (' + groceryPackage.barcode + ')'}}
+      {{groceryPackage.quantity + ' ' + (groceryPackage.unit ? groceryPackage.unit.name : '') + ' ' + (groceryPackage.packageDescription ? groceryPackage.packageDescription : '') + ' (' + groceryPackage.barcode + ')'}}
   </div>
 </div>

@@ -92,7 +92,7 @@ export class GroceryItemEditComponent implements OnInit {
 
   addNewPackage(barcode?: string) {
     if (barcode) {
-      if (!this.groceryPackages[this.groceryPackages.length - 1].barcode) {
+      if (this.groceryPackages.length > 0 && !this.groceryPackages[0].barcode) {
         this.groceryPackages[this.groceryPackages.length - 1].barcode = barcode;
       } else {
         const newPackage = new GroceryPackage();
@@ -128,5 +128,13 @@ export class GroceryItemEditComponent implements OnInit {
         this.barcodeScannerService.stopScanner();
         this.scannerRunning = false;
       });
+  }
+
+  getRouterLink() {
+    if (this.groceryItem._id) {
+      return ['/groceryitems/' + this.groceryItem._id];
+    } else {
+      return ['/groceryitems/'];
+    }
   }
 }

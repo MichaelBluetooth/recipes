@@ -64,7 +64,7 @@ export class GroceryPackageService {
   getGroceryPackageMetadata(): Promise<void | any> {
     return Promise.resolve(
       {
-        layout: [['barcode', 'quantity']],
+        layout: [['quantity', 'barcode']],
         fields: [
           {
             name: '_id',
